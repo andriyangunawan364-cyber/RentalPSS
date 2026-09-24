@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Website Rental PS3 dan PS4 dengan promo, WiFi gratis, fasilitas lengkap, keranjang dan pemesanan WhatsApp.">
+  <title>LEVEL UP PS RENTAL — PS3 & PS4</title>
+  <link rel="stylesheet" href="rentalps.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a class="logo" href="#home"><span>🎮</span> LEVEL UP <b>PS RENTAL</b></a>
+      <nav>
+        <a href="#rental" data-i18n="navRental">Rental</a>
+        <a href="#promo" data-i18n="navPromo">Promo</a>
+        <a href="#fasilitas" data-i18n="navFacility">Fasilitas</a>
+        <a href="#about" data-i18n="navAbout">Tentang</a>
+        <a href="#help" data-i18n="navHelp">Bantuan</a>
+      </nav>
+      <div class="nav-actions">
+        <button id="langBtn" class="lang-btn">EN</button>
+        <button class="cart-btn" onclick="scrollToCart()">🛒 <span data-i18n="cart">Keranjang</span> <b id="cartCount">0</b></button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-glow"></div>
+      <div class="container hero-grid">
+        <div>
+          <div class="badge">🔥 PS3 • PS4 • WIFI GRATIS</div>
+          <h1>MAIN PUAS.<br><span>HARGA BERSAHABAT.</span></h1>
+          <p data-i18n="heroText">Rental PS nyaman untuk mabar, nongkrong, dan kompetisi seru bareng teman.</p>
+          <div class="hero-actions">
+            <a class="btn primary" href="#rental" data-i18n="bookNow">Pesan Sekarang</a>
+            <a class="btn ghost" href="#promo" data-i18n="seePromo">Lihat Promo</a>
+          </div>
+          <div class="mini-stats">
+            <div><strong>PS3</strong><small>Mulai Rp5.000/jam</small></div>
+            <div><strong>PS4</strong><small>Mulai Rp9.000/jam</small></div>
+            <div><strong>FREE</strong><small>WiFi</small></div>
+          </div>
+        </div>
+        <div class="hero-card">
+          <div class="console-art">🎮</div>
+          <div class="hero-card-content">
+            <span>TODAY'S VIBE</span>
+            <h3>MABAR TIME</h3>
+            <p>Datang • Pilih PS • Main • Menang</p>
+            <div class="wifi-box">📶 <b>WiFi GRATIS</b><br><small>Lantai 2</small></div>
+            
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="promo" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow">DEALS</span><h2 data-i18n="promoTitle">Promo</h2></div>
+          <p data-i18n="promoSub"></p>
+        </div>
+        <div class="promo-grid">
+          <article class="promo featured">
+            <span class="promo-icon">👥</span><span class="tag">FAVORIT</span>
+            <h3 data-i18n="p1Title">Ajak Teman, Main Gratis!</h3>
+            <p data-i18n="p1Text">Ajak 1 teman baru yang belum pernah rental di sini. Dapat bonus <b>30 menit</b> bermain.</p>
+            <small>*Syarat & ketentuan berlaku.</small>
+          </article>
+          <article class="promo">
+            <span class="promo-icon">🌙</span>
+            <h3 data-i18n="p2Title">Happy Hour</h3>
+            <p data-i18n="p2Text">Main di jam sepi dan dapat bonus waktu sesuai promo yang sedang aktif.</p>
+            <small></small>
+          </article>
+          <article class="promo">
+            <span class="promo-icon">🏆</span>
+            <h3 data-i18n="p3Title">Mabar 4 Jam</h3>
+            <p data-i18n="p3Text">Pesan durasi panjang dan dapat bonus minuman / waktu sesuai program toko.</p>
+            <small></small>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="rental" class="section dark-section">
+      <div class="container">
+        <div class="section-head">
+          <div><span class="eyebrow">BOOKING</span><h2 data-i18n="rentalTitle">Pilih rental PS</h2></div>
+          <p data-i18n="rentalSub">Isi data pemain, pilih konsol dan meja.</p>
+        </div>
+
+        <div class="booking-layout">
+          <div class="booking-form card">
+            <h3>👤 <span data-i18n="playerData">Data Pemain</span></h3>
+            <div class="form-grid">
+              <label><span data-i18n="name">Nama</span><input id="name" type="text" placeholder="Nama pemain"></label>
+              <label><span data-i18n="age">Umur</span><input id="age" type="number" min="1" max="100" placeholder="Umur"></label>
+              <label class="full"><span>WhatsApp</span><input id="whatsapp" type="tel" placeholder="08xxxxxxxxxx"></label>
+            </div>
+
+            <h3>🕹️ <span data-i18n="chooseConsole">Pilih Konsol & Meja</span></h3>
+            <div class="console-tabs">
+              <button class="console-tab active" data-console="PS3">PS3</button>
+              <button class="console-tab" data-console="PS4">PS4</button>
+            </div>
+            <div id="tableGrid" class="table-grid"></div>
+
+            <div class="form-grid">
+              <label><span data-i18n="start">Mulai Main</span><input id="startTime" type="time"></label>
+              <label><span data-i18n="duration">Durasi</span>
+                <select id="duration">
+                  <option value="1">1 jam</option><option value="2">2 jam</option>
+                  <option value="3">3 jam</option><option value="4">4 jam</option>
+                  <option value="5">5 jam</option><option value="6">6 jam</option>
+                </select>
+              </label>
+              <label class="full"><span data-i18n="note">Catatan</span><textarea id="note" rows="3" placeholder="Contoh: minta stik 2, kursi dekat AC..."></textarea></label>
+            </div>
+
+            <div class="payment">
+              <h3>💳 <span data-i18n="payment">Metode Pembayaran</span></h3>
+              <div class="payment-options">
+                <label><input type="radio" name="payment" value="QRIS" checked><span>▣ QRIS</span></label>
+                <label><input type="radio" name="payment" value="E-Wallet"><span>📱 E-Wallet</span></label>
+                <label><input type="radio" name="payment" value="Bank"><span>🏦 Bank</span></label>
+                <label><input type="radio" name="payment" value="Cash"><span>Cash</span></label>
+              </div>
+              <small data-i18n="paymentNote">Detail pembayaran dikirim/ditampilkan oleh owner setelah pemesanan.</small>
+            </div>
+
+            <button class="btn primary wide" id="addBtn" data-i18n="addCart">+ Tambahkan ke Keranjang</button>
+          </div>
+
+          <aside id="cart" class="cart card">
+            <div class="cart-head"><h3>🛒 <span data-i18n="cart">Keranjang</span></h3><span id="cartCountBig">0 item</span></div>
+            <div id="cartItems" class="cart-items">
+              <div class="empty-cart">Keranjang masih kosong.<br><small>Pilih PS dan meja untuk mulai.</small></div>
+            </div>
+            <div class="cart-total"><span data-i18n="total">Total</span><strong id="total">Rp0</strong></div>
+            <div class="customer-summary">
+              <div><span data-i18n="customer">Pelanggan</span><b id="summaryName">-</b></div>
+              <div>WhatsApp <b id="summaryWA">-</b></div>
+            </div>
+            <button class="btn whatsapp wide" id="orderBtn">💬 <span data-i18n="orderWA">Pesan via WhatsApp</span></button>
+            <button class="btn reset wide" id="resetBtn" data-i18n="reset">Reset Pesanan</button>
+            <small class="privacy">Data hanya digunakan untuk memproses pesanan rental.</small>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="fasilitas" class="section">
+      <div class="container">
+        <div class="section-head"><div><span class="eyebrow">FACILITIES</span><h2 data-i18n="facilityTitle">Fasilitas tempat</h2></div></div>
+        <div class="facility-grid">
+          <div class="facility">📶<h3>WiFi Gratis</h3><p>Username: <b>Lantai 2</b><br>Password: <b>Pesan Rental,Tanya pasword ke admin</b></p></div>
+          <div class="facility">🛋️<h3>Ruang Tunggu</h3><p>Tempat nyaman untuk menunggu giliran.</p></div>
+          <div class="facility">🍔<h3>Makanan & Minuman</h3><p>Tersedia camilan dan minuman untuk teman mabar.</p></div>
+          <div class="facility">🧑‍🤝‍🧑<h3>Tempat Nongkrong</h3><p>Area santai untuk ngobrol dan mabar.</p></div>
+          <div class="facility">🎲<h3>Game Gratis</h3><p>Game pilihan yang disediakan owner dapat dimainkan sesuai aturan tempat.</p></div>
+          <div class="facility">❄️<h3>Ruangan Nyaman</h3><p>Area bermain dibuat nyaman untuk sesi panjang.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section about">
+      <div class="container two-col">
+        <div><span class="eyebrow">ABOUT US</span><h2 data-i18n="aboutTitle">Tentang Toko Kami</h2><p data-i18n="aboutText">LEVEL UP PS RENTAL adalah tempat rental PS3 dan PS4 untuk mabar, nongkrong, dan menikmati game bersama.</p></div>
+        <div class="hours"><h3>⏰ Jam Operasional</h3><p>Senin – Minggu</p><strong>6:00 – 23:00</strong><small></small></div>
+      </div>
+    </section>
+
+    <section id="help" class="section">
+      <div class="container help">
+        <span class="eyebrow">HELP CENTER</span><h2 data-i18n="helpTitle">Pusat Bantuan</h2>
+        <div class="faq">
+          <details open><summary>Bagaimana cara booking?</summary><p>Pilih PS, meja, durasi, isi data pemain, lalu tambahkan ke keranjang dan tekan tombol WhatsApp.</p></details>
+          <details><summary>Apakah bisa bayar di tempat?</summary><p>Website menyediakan QRIS, E-Wallet, dan Bank. Jika toko menerima pembayaran langsung, owner dapat menambah opsi Cash di JavaScript.</p></details>
+          <details><summary>Apakah WiFi gratis?</summary><p>Ya. Username dan password WiFi ditampilkan di bagian fasilitas.</p></details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer><div class="container footer"><b>🎮 LEVEL UP PS RENTAL</b><span>© 2026 — PS3 • PS4 • WiFi Gratis</span></div></footer>
+  <script src="rentalps.js"></script>
+</body>
+</html>
